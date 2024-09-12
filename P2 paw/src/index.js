@@ -10,6 +10,12 @@ app.get('/about',(req,res) => {
     res.send('Aku Hitam')
 });
 
+//middleware
+app.use('*', (req,res) =>{
+    res.status(404);
+    res.send("ERROR 404")
+});
+
 app.listen(port, () => {
     console.log('Example app are listening to port 3000')
 })
