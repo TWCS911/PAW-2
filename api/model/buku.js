@@ -1,4 +1,4 @@
-const mongoose = require("mongose");
+const mongoose = require("mongoose");
 
 const bukuSchema = new mongoose.Schema({
     judul : {type : String, required : true},

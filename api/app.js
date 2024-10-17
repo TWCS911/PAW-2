@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bukusRouter = require('./routes/bukus');
 
+const mongoose = require("mongoose");
+
 
 //CORS Enabled
 //Cross Origin Resource Sharing
@@ -23,6 +25,16 @@ app.use((req,res,next)=>{
   next();
 }
 );
+
+mongoose.connect(
+  "mongodb://localhost:27017/dbbuku"
+).then(()=>{
+  console.log("Connected to Database");
+}).catch((err)=>{
+  // console.error('App starting error:', err.stack);
+  console.log("Connection Failed");
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
